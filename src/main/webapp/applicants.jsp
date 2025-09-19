@@ -42,22 +42,34 @@
                class="img-fluid rounded"
                style="max-height:300px; object-fit:cover;">
 
-               <a href="ImageServlet?id=<%=a.getId()%>&download=true"
-                  class="btn btn-sm btn-outline-primary mt-2">Download Image</a>
+          <a href="ImageServlet?id=<%=a.getId()%>&download=true"
+             class="btn btn-sm btn-outline-primary mt-2">Download Image</a>
         </div>
         <div>
           <h5><%= a.getName() %></h5>
           <p><b>CNIC:</b> <%= a.getCnic() %></p>
           <p><b>Email:</b> <%= a.getEmail() %></p>
-          <p><b>Father:</b> <%= a.getFatherName() %></p>
+          <p><b>Father Name:</b> <%= a.getFatherName() %></p>
+          <p><b>Father CNIC:</b> <%= a.getFatherCnic() %></p>
+          <p><b>Siblings Count:</b> <%= a.getSiblingsCount() %></p>
+          <p><b>Class Name:</b> <%= a.getClassName() %></p>
+          <p><b>Father Designation:</b> <%= a.getFatherDesignation() %></p>
+          <p><b>Gender:</b> <%= a.getGender() %></p>
+          <p><b>Image Name:</b> <%= a.getImageName() %></p>
           <p><b>City:</b> <%= a.getCity() %></p>
+          <p><b>Permanent Address:</b> <%= a.getPermanentAddress() %></p>
+          <p><b>Last Institute:</b> <%= a.getLastInstitute() %></p>
+          <p><b>Last Qualification:</b> <%= a.getLastQualification() %></p>
           <p><b>Cell:</b> <%= a.getCellNumber() %></p>
+          <p><b>Account Number:</b> <%= a.getAccountNumber() %></p>
           <p><b>WhatsApp:</b> <%= a.getWhatsappNumber() %></p>
+          <p><b>Marks:</b> <%= a.getMarks() %></p>
           <p><b>Registered At:</b> <%= a.getRegisteredAt() %></p>
           <p><b>Verified:</b> <%= a.isVerified() ? "Yes" : "No" %></p>
         </div>
       </div>
     </div>
+
     <%
       }
     %>

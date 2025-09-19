@@ -42,8 +42,7 @@ public class ApplicantDAO {
 
     public List<Applicant> getAll() {
         List<Applicant> list = new ArrayList<>();
-        String sql = "SELECT id, name, cnic, email, father_name, city, cell_number, whatsapp_number, registered_at, verified, image " +
-                "FROM applicants";
+        String sql = "SELECT * FROM applicants";  // fetch all columns
         try (Connection con = DBConnect.getConnection();
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
@@ -55,12 +54,24 @@ public class ApplicantDAO {
                 a.setCnic(rs.getString("cnic"));
                 a.setEmail(rs.getString("email"));
                 a.setFatherName(rs.getString("father_name"));
+                a.setFatherCnic(rs.getString("father_cnic"));
+                a.setSiblingsCount(rs.getInt("siblings_count"));
+                a.setClassName(rs.getString("class_name"));
+                a.setFatherDesignation(rs.getString("father_designation"));
+                a.setGender(rs.getString("gender"));
+                a.setImage(rs.getBytes("image"));
+                a.setImageName(rs.getString("image_name"));
                 a.setCity(rs.getString("city"));
+                a.setPermanentAddress(rs.getString("permanent_address"));
+                a.setLastInstitute(rs.getString("last_institute"));
+                a.setLastQualification(rs.getString("last_qualification"));
                 a.setCellNumber(rs.getString("cell_number"));
+                a.setAccountNumber(rs.getString("account_number"));
                 a.setWhatsappNumber(rs.getString("whatsapp_number"));
+                a.setMarks(rs.getString("marks"));
                 a.setRegisteredAt(rs.getTimestamp("registered_at"));
                 a.setVerified(rs.getBoolean("verified"));
-                a.setImage(rs.getBytes("image"));   // ✅ safe now
+
                 list.add(a);
             }
         } catch (Exception e) {
@@ -68,6 +79,7 @@ public class ApplicantDAO {
         }
         return list;
     }
+
 
 
     // optional: get applicant by id, update verified flag, etc.
